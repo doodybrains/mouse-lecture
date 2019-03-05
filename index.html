@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      name of webpage
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      @font-face {
+        font-family: 'cooper';
+        src: url('fonts/cooperhewitt-heavy-webfont.woff2') format('woff2'),
+             url('fonts/cooperhewitt-heavy-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'junicode';
+        src: url('fonts/Junicode.ttf');
+        font-weight: normal;
+        font-style: normal;
+      }
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        background-color: snow;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        color: darkgrey;
+        cursor: none;
+      }
+
+      span#mouse {
+        display: block;
+        position: absolute;
+      }
+      span#mouse:after {
+        content: url(mouse.png);
+        height: 100px;
+        width: 100px;
+      }
+
+      div.handcoding-is-fun {
+        height: 100vh;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 20px;
+      }
+
+      section h3 {
+        font-size: 3.5em;
+        font-family: cooper;
+        margin: 0 0 12px 0;
+      }
+
+      section p {
+        font-family: junicode;
+        font-size: 2.25em;
+        margin: 0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="handcoding-is-fun">
+      <section>
+        <h3>
+          the computer mouse is one of the most ubiquitous computing technologies to date.
+        </h3>
+        <p>yet users of the mouse don't really think about it's structure. they use it as if it were a required technology for computing.</p>
+      </section>
+    </div>
+  </body>
+
+  <script type="application/javascript">
+    window.addEventListener('load', windowLoaded);
+
+    function windowLoaded() {
+      document.addEventListener('mousemove', mouseMoved);
+      const m = document.createElement('span');
+      m.id = "mouse";
+      document.getElementsByTagName('body')[0].append(m);
+    }
+
+    function mouseMoved(e) {
+      const m = document.getElementById("mouse");
+      m.style.top = `${e.clientY}px`;
+      m.style.left =`${e.clientX}px`;
+    }
+  </script>
+</html>
